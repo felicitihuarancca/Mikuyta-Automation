@@ -1,6 +1,6 @@
 INSTALL FRAMEWORK
 
-1. git clone https://github.com/juan-montes-globant/WebAutomationBootcamp_2020-2.git
+1. git clone https://github.com/felicitihuarancca/Mikuyta-Automation.git
 2. mvn clean install -DskipTests
 3. mvn eclipse:eclipse or mvn idea:idea
 
