@@ -61,15 +61,17 @@ public class SignUpPage extends BasePage {
      * @param username String set username
      * @param password String set password
      */
-    public void signUpCustomer(String fullname, String email, String phone, String identityNumber, String username, String password) {
+    public void signUpCustomer(String fullname, String email, String phone, String identityNumber, String username, String password) throws InterruptedException {
         log.info("Set values");
         sendElementText(fullnameTxt, fullname);
         sendElementText(emailTxt, email);
         sendElementText(phoneTxt, phone);
         sendElementText(identityNumberTxt, identityNumber);
         sendElementText(usernameTxt, username);
+        log.info("username"+getUsernameText());
         sendElementText(passwordTxt, password);
         log.info("Click Sign Up");
+        Thread.sleep(1000);
         clickElement(registerBtn);
     }
 
@@ -77,18 +79,21 @@ public class SignUpPage extends BasePage {
         customerBtn.click();
     }
 
-    public void signUpCompany(String fullname, String district, String address, String email, String phone, String identityNumber, String username, String password) {
+    public void signUpCompany(String fullname, int district, String address, String email, String phone, String identityNumber, String username, String password) throws InterruptedException {
         log.info("Set values");
         Select districtDropdown = new Select(districtCmb);
+        waitElementVisibility(fullnameTxt);
         sendElementText(fullnameTxt, fullname);
-        //districtDropdown.selectByValue(district);
+        districtDropdown.selectByIndex(district);
         sendElementText(addressTxt, address);
         sendElementText(emailTxt, email);
         sendElementText(phoneTxt, phone);
         sendElementText(identityNumberTxt, identityNumber);
         sendElementText(usernameTxt, username);
+        log.info("username"+getUsernameText());
         sendElementText(passwordTxt, password);
         log.info("Click Sign Up");
+        Thread.sleep(1000);
         clickElement(registerBtn);
     }
 
@@ -96,4 +101,7 @@ public class SignUpPage extends BasePage {
         companyBtn.click();
     }
 
+    public String getUsernameText() {
+        return getTextFromInput(usernameTxt);
+    }
 }

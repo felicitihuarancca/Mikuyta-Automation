@@ -28,6 +28,12 @@ public class LoginPage extends BasePage {
     @FindBy(css = "[data-test=\"logout_btn\"]")
     private WebElement logoutBtn;
 
+    @FindBy(css = "[data-test=\"role_btn\"]")
+    private WebElement roleBtn;
+
+    @FindBy(css = "[data-test=\"listCompany_lnk\"]")
+    private WebElement listCompanyLink;
+
     /**
      * Constructor.
      * @param driver WebDriver
@@ -74,4 +80,16 @@ public class LoginPage extends BasePage {
         clickElement(logoutBtn);
     }
 
+    public String getRoleText() {
+        return getElementText(roleBtn);
+    }
+
+    public OrderPage getOrderPage() {
+        clickElement(listCompanyLink);
+        return new OrderPage(getDriver());
+    }
+
+    public boolean isLoginPresent() {
+        return elementPresent(loginButton);
+    }
 }

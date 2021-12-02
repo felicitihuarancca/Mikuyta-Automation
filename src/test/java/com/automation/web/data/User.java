@@ -12,15 +12,15 @@ public class User {
     private String password;
 
     Random  random = new Random();
-    int number = random.nextInt(10) + 1;
+    int number = random.nextInt(10000) + 1;
 
     public User() {
-        this.fullname = "Feliciti Huarancca";
-        this.email = "feliciti"+number+"@gmail.com";
+        this.fullname = "TestUsername TestSurname";
+        this.email = "test-email"+number+"@gmail.com";
         this.phone = "91373733";
         this.identityNumber = "12345678";
-        this.username = "licity";
-        this.password = "teamoperu22";
+        this.username = "tes-username-"+number;
+        this.password = "testPassword";
     }
 
     public String getFullname() {

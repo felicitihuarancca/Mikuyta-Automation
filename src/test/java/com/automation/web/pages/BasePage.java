@@ -85,6 +85,11 @@ public class BasePage {
 		return element.getText();
 	}
 
+	public String getTextFromInput(WebElement element) {
+		waitElementVisibility(element);
+		return element.getAttribute("value");
+	}
+
 	/**
 	 * Wait element and Set the values.
 	 * @param element WebElement
@@ -94,6 +99,11 @@ public class BasePage {
 		waitElementVisibility(element);
 		element.click();
 		element.sendKeys(text);
+	}
+
+	public void clearElementText(WebElement element) {
+		waitElementVisibility(element);
+		element.clear();
 	}
 
 	/**
@@ -133,5 +143,9 @@ public class BasePage {
 	 */
 	public void switchDefaultFrame() {
 		getDriver().switchTo().defaultContent();
+	}
+
+	public boolean elementPresent(WebElement element) {
+		return element.isDisplayed();
 	}
 }

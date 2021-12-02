@@ -18,7 +18,7 @@ public class Data {
 
     @DataProvider(name = "logoutdata")
     public Object[][] logoutdata() {
-        return new Object[][] {{new User()}};
+        return new Object[][] {{"licity", "licity22"}};
     }
 
     @DataProvider(name = "canceldata")
