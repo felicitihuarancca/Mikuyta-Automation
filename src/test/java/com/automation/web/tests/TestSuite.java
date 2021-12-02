@@ -125,14 +125,14 @@ public class TestSuite extends BaseTest {
         loginPage.logout();
     }
 
-    @Test(description = "test log out Mikuyta", priority = 6, dataProviderClass = Data.class, dataProvider = "logoutdata")
-    public void testCaseLogout_CPI06(String username, String password) throws InterruptedException {
+    @Test(description = "test log out Mikuyta", priority = 6)
+    public void testCaseLogout_CPI06() throws InterruptedException {
         log.info("Get Home Page");
         HomePage homePage = getHomePage();
         Assert.assertEquals(homePage.getBrandText(), "MIKUYTA", "THE TEXT IS NOT AS EXPECTED");
         log.info("Start Log in");
         LoginPage loginPage = homePage.clickLoginLink();
-        loginPage.logIn(username, password);
+        loginPage.logIn(userCustomer.getUsername(), userCustomer.getPassword());
         Thread.sleep(10000);
         log.info("Do Log out");
         loginPage.logout();

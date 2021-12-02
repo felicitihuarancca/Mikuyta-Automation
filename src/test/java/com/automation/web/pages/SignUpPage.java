@@ -68,7 +68,7 @@ public class SignUpPage extends BasePage {
         sendElementText(phoneTxt, phone);
         sendElementText(identityNumberTxt, identityNumber);
         sendElementText(usernameTxt, username);
-        log.info("username"+getUsernameText());
+        log.info("username: "+getUsernameText());
         sendElementText(passwordTxt, password);
         log.info("Click Sign Up");
         Thread.sleep(1000);
